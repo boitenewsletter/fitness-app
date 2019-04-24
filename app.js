@@ -154,7 +154,7 @@ app.post('/webhook/', (req, res) => {
                         console.log(error);
                     } else {
                         //token = result.code
-                        text = "Greetings! I am Marty.How can I assist?";
+                        text = "Your request has been sent to our Customer Customer Service.One of our advisors will contact you shortly.Have a nice day.";
                         messageData = {
                             speech: text,
                             displayText: text
