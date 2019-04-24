@@ -38,3 +38,9 @@ var getAuthTokenService = (callback) =>{
       }
   });
 };
+
+
+
+module.exports = {
+    getAuthTokenService
+};
