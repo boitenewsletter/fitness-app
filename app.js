@@ -146,7 +146,25 @@ app.post('/webhook/', (req, res) => {
 							     }
 							}
 		 				break;
+                          case 'checking':
+                           {
+                console.log('In case Tokeneeee');
+                sfdc.getAuthTokenService((error, result) => {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        //token = result.code
+                        text = "Greetings! I am Marty.How can I assist?";
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
 
+                        res.send(messageData);
+                    }
+                });
+            }
+            break;
 			case 'shoes-in-stock': {
 					console.log("In shoes-in-stock");
 					if(isDefined(actionName)){
