@@ -5,8 +5,6 @@ const config = require('./config');
 const express = require('express');
 const xml2js = require('xml2js');
 const bodyParser = require('body-parser');
-const sfcc= require('./sfcc-apis.js');
-const sfmc= require('./sfmc.js');
 const sfdc= require('./Sfdc.js');
 const mailer= require('./mailer.js');
 const nodemailer= require('nodemailer');
@@ -65,49 +63,6 @@ app.get('/', function (req, res) {
 	res.send('Hello world, I am a chat bot')
 })
 
-function pushNotification(deviceID, messageId) {
-	sfmc.getDeviceTokenService(deviceAccessToken, deviceID, (error, result)=> {
-		if(error){
-			console.log(error);
-		} else {
-			console.log("Device token :"+result.device_token);
-			sfmc.sendPushNotificationService(deviceAccessToken, result.device_token, messageId, (error, finalResult)=> {
-				if(error){
-					console.log(error);
-					} else {
-					 console.log(finalResult);
-				      	}
-				});	
-			}
-		});
-};
-
-
-function notify(emailId, messageId) {
-	
-	console.log("In notify-  "+emailId);
-	if(emailId == 'gwengraman12@gmail.com')
-	{
-		console.log("Gwen User");
-		setTimeout(() => pushNotification(deviceIdG, messageId), 3000);
-		
-	} else if(emailId == 'josselain12@gmail.com') 
-	{
-		console.log("Josselain User");
-		setTimeout(() => pushNotification(deviceIdJ, messageId), 3000);
-		
-	} else if(emailId == 'pratikb365@gmail.com') 
-	{
-		console.log("Pratik User");
-		setTimeout(() => pushNotification(deviceIdP, messageId), 3000);
-		
-	} else 
-	{
-		console.log("Different User");
-	}
-};
-
-//mailer.sendMailService("pratikb365@gmail.com", "Pratik");
 
 app.post('/webhook/', (req, res) => {
 
