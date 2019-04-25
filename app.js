@@ -83,24 +83,6 @@ app.post('/webhook/', (req, res) => {
  	var message = req.body.result.resolvedQuery;
 	switch (actionName) {
 
-			case 'check_sign_in': {
-		 				console.log('In check_sign_in');
-		 					if(isDefined(actionName)){
-								messageData = {
-									"data": {
-										"google": {
-										"expectUserResponse": true,
-										"systemIntent": {
-										"intent": "actions.intent.SIGN_IN",
-										"data": {}
-										         }
-										       }
-										 }
-									}
-								res.send(messageData);
-							     }
-							}
-		 				break;
                           case 'checking':
                            {
                 console.log('In case Tokeneeee');
