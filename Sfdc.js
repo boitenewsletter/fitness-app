@@ -41,6 +41,52 @@ var getAuthTokenService = (callback) =>{
 
 
 
+var sfdcToken = (callback) => {
+var http = require("https");
+
+var options = {
+  "method": "POST",
+  "hostname": [
+    "28021019085421fddss",
+    "my",
+    "salesforce",
+    "com"
+  ],
+  "path": [
+    "services",
+    "oauth2",
+    "token"
+  ],
+  "headers": {
+    "Content-Type": "application/x-www-form-urlencoded",
+    "cache-control": "no-cache",
+    "Postman-Token": "f7edc9f6-06aa-4347-9c3e-36d6329d1fb6"
+  }
+};
+
+var req = http.request(options, function (res) {
+  var chunks = [];
+
+  res.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+  res.on("end", function () {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
+});
+
+req.end();
+
+
+}
+
+
+
+
+
 module.exports = {
-    getAuthTokenService
+    getAuthTokenService,
+    sfdcToken
 };
