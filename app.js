@@ -90,7 +90,8 @@ app.post('/webhook/', (req, res) => {
                     if (error) {
                         console.log(error);
                     } else {
-                        //token = result.code
+                        token = result.token
+			    console.log(token)
                         text = "Your request has been sent to our Customer Customer Service.One of our advisors will contact you shortly.Have a nice day.";
                         messageData = {
                             speech: text,
