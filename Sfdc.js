@@ -44,49 +44,36 @@ var getAuthTokenService = (callback) =>{
 var sfdcToken = (callback) => {
 var http = require("https");
 
-var options = {
-  "method": "POST",
-  "hostname": [
-    "28021019085421fddss",
-    "my",
-    "salesforce",
-    "com"
-  ],
-  "path": [
-    "services",
-    "oauth2",
-    "token"
-  ],
-  "headers": {
-    "Content-Type": "application/x-www-form-urlencoded",
-    "cache-control": "no-cache",
-    "Postman-Token": "f7edc9f6-06aa-4347-9c3e-36d6329d1fb6"
-  }
-};
+console.log('Auth token API hit');
+  request({
+    url: 'https://test.salesforce.com/services/oauth2/token?client_id=3MVG9d3kx8wbPieFTimr8wVzVWhhJYiLu_gh8eB5hLaz3ECk55tbOVXa9z.Mh0lm9F6tdGR6O4xqg1rkKAEr_&client_secret=7587859007039327259&grant_type=password&username=integrationuser@capgemini.com&password=Iuser1233wZ0QE7BKG3bKz7kR3Tqrv91' ,
+    method: 'POST',
+    rejectUnauthorized: false,
+    headers: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+    json: true
+  }, (error, response, body) => {
 
-var req = http.request(options, function (res) {
-  var chunks = [];
-
-  res.on("data", function (chunk) {
-    chunks.push(chunk);
+    if(error){
+      callback('There was an error connecting to the server');
+    }
+    else if(response.statusCode == 400){
+      callback('Unable to get the token');
+    }
+    else if(response.statusCode == 200){
+      console.log('getAuthTokenService API hit:', response.statusCode)
+	   console.log(body.access_token)
+        console.log('sandeeeeeeeee')
+      callback(undefined, {
+        token: body.access_token,
+        refresh_token: body.refresh_token,
+        });
+      }
   });
-
-  res.on("end", function () {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-      
-      console.log('sandeeeeeeeeeep');
-  });
-});
-
-req.end();
 
 
 }
-
-
-
-
 
 module.exports = {
     getAuthTokenService,
