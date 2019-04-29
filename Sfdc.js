@@ -67,8 +67,8 @@ console.log('Auth token API hit');
         console.log('sandeeeeeeeee')
       callback(undefined, {
         token: body.access_token,
-        console.log(token)
-		 console.log('mandeep')
+        console.log(body.access_token)
+        console.log('mandeep')
         });
       }
   });
