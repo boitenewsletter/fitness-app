@@ -68,7 +68,7 @@ console.log('Auth token API hit');
       callback(undefined, {
         token: body.access_token,
         //console.log(body.access_token)
-        console.log('mandeep')
+        //console.log('mandeep')
         });
       }
   });
