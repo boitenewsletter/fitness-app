@@ -105,7 +105,7 @@ var getUserDetails = (authToken, callback) => {
       console.log('createCartService API hit:', response.statusCode)
       callback(undefined, {
         basketId: body,
-	      name:body.value[0].name,
+	      //name:body.value[0].name,
 	      name1:body.objectDescribe.name
 		
         });
