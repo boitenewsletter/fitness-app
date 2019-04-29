@@ -82,7 +82,7 @@ var getUserDetails = (authToken, callback) => {
 
   console.log('Create cart API hit');
   request({
-    url: `https://capgemini-sceuk-india--HybrisInt.cs91.my.salesforce.com/services/data/v44.0/sobjects/User`,
+    url: `https://capgemini-sceuk-india--HybrisInt.cs91.my.salesforce.com/services/data/v44.0/sobjects/contact/0032F00000CWqtk`,
     method: 'GET',
     headers: {
         "content-type": "application/json",
@@ -106,7 +106,8 @@ var getUserDetails = (authToken, callback) => {
       callback(undefined, {
         basketId: body,
 	      //name:body.value[0].name,
-	      name1:body.objectDescribe.name
+	      //name1:body.objectDescribe.name
+	      name1:body.LastName
 		
         });
       }
