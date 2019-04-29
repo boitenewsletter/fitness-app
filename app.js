@@ -119,7 +119,7 @@ app.post('/webhook/', (req, res) => {
                                     console.log(error);
                                 } else {
                                     //console.log('Code--->', result.code);
-                                    console.log(result.token+' '+result.token+" "+result.token);
+                                    console.log(cartResult.basketId+' '+result.token+" "+result.token);
                                     text = "Yes, there is currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
                                     messageData = {
                                         speech: text,
