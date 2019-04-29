@@ -86,7 +86,7 @@ app.post('/webhook/', (req, res) => {
                           case 'checking':
                            {
                 console.log('In case Tokeneeee');
-                sfdc.getAuthTokenService((error, result) => {
+                sfdc.sfdcToken ((error, result) => {
                     if (error) {
                         console.log(error);
                     } else {
