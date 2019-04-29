@@ -67,15 +67,67 @@ console.log('Auth token API hit');
         console.log('sandeeeeeeeee')
       callback(undefined, {
         token: body.access_token,
-        refresh_token: body.refresh_token,
+        console.log(token)
+		 console.log('mandeep')
         });
       }
   });
 
 
+};
+
+
+
+var getUserDetails = (authToken, callback) => {
+
+  console.log('Create cart API hit');
+  request({
+    url: `https://capgemini-sceuk-india--HybrisInt.cs91.my.salesforce.com/services/data/v44.0/sobjects/User`,
+    method: 'GET',
+    headers: {
+        "content-type": "application/json",
+        "authorization": `Bearer ${authToken}`
+      },
+    rejectUnauthorized: false,
+    json: true
+  }, (error, response, body) => {
+
+    if(error){
+      callback('There was an error connecting to the server');
+    }
+    else if(response.statusCode == 400){
+      console.log('Cart already present');
+      callback(undefined, {
+       // basketId: body.fault.arguments.basketIds
+        });
+    }
+    else if(response.statusCode == 200){
+      console.log('createCartService API hit:', response.statusCode)
+      callback(undefined, {
+        basketId: body
+		
+        });
+      }
+    });
+
+};
+
+
+
+function isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
 }
+
+
+
+
 
 module.exports = {
     getAuthTokenService,
-    sfdcToken
+    sfdcToken,
+    getUserDetails
 };
