@@ -104,7 +104,8 @@ var getUserDetails = (authToken, callback) => {
     else if(response.statusCode == 200){
       console.log('createCartService API hit:', response.statusCode)
       callback(undefined, {
-        basketId: body
+        basketId: body,
+	      name:body.name
 		
         });
       }
