@@ -80,9 +80,11 @@ app.post('/webhook/', (req, res) => {
 	var sessionId = req.body.sessionId;
 	var actionName = req.body.result.action;
  	var parameters = req.body.result.parameters;
+	var parameters1 = req.body.result.parameters.phone-number;
  	var message = req.body.result.resolvedQuery;
-	 console.log('sandeep');
+	 console.log('tttttttttt');
 	 console.log(parameters);
+	console.log(parameters1);
 	switch (actionName) {
 
                           case 'checking':
