@@ -76,10 +76,11 @@ app.post('/webhook/', (req, res) => {
 // 	};
 	
 	//console.log(JSON.stringify(req.body));
+	var test = '9845098450';
 	var data = req.body;
 	var sessionId = req.body.sessionId;
 	var actionName = req.body.result.action;
- 	var parameters = req.body.result.parameters;
+ 	var parameters = req.body.result.parameters[0];
 	var parameters1 = req.body.result.parameters.email;
  	var message = req.body.result.resolvedQuery;
 	 console.log('tttttttttt');
