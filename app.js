@@ -81,6 +81,8 @@ app.post('/webhook/', (req, res) => {
 	var actionName = req.body.result.action;
  	var parameters = req.body.result.parameters;
  	var message = req.body.result.resolvedQuery;
+	 console.log('sandeep');
+	 console.log(parameters);
 	switch (actionName) {
 
                           case 'checking':
