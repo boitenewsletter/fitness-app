@@ -126,7 +126,7 @@ app.post('/webhook/', (req, res) => {
 					console.log('sandeep');
 					//console.log(cartResult.name1);
 					var email =cartResult.name1 ;
-                                    text = "Your registered phone email is" email "and we will contact you shortly. Have a nice day!";
+                                    text = "Your registered phone email is and we will contact you shortly. Have a nice day!";
                                     messageData = {
                                         speech: text,
                                         displayText: text
