@@ -125,7 +125,7 @@ app.post('/webhook/', (req, res) => {
 					//console.log(cartResult.name);
 					console.log('sandeep');
 					console.log(cartResult.name1);
-                                    text = "Yes, there is currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
+                                    text = "Your registered phone email is" cartResult.name1 "and we will contact you shortly. Have a nice day!";
                                     messageData = {
                                         speech: text,
                                         displayText: text
