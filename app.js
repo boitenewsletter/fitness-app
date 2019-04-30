@@ -80,12 +80,12 @@ app.post('/webhook/', (req, res) => {
 	var data = req.body;
 	var sessionId = req.body.sessionId;
 	var actionName = req.body.result.action;
- 	var parameters = req.body.result.parameters[0];
+ 	var parameters = req.body.result.parameters;
+	var json = JSON.parse(JSON.stringify(data).split('"phone-number":').join('"phonenumber":'));
+	var teskk = json.phonenumber;
 	var parameters1 = req.body.result.parameters.email;
  	var message = req.body.result.resolvedQuery;
-	 console.log('tttttttttt');
-	 console.log(parameters);
-	console.log(parameters1);
+	 console.log(teskk);
 	switch (actionName) {
 
                           case 'checking':
