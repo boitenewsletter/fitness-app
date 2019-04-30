@@ -79,7 +79,7 @@ app.post('/webhook/', (req, res) => {
 	var data = req.body;
 	var sessionId = req.body.sessionId;
 	var actionName = req.body.result.action;
- 	var parameters = req.body.result.parameters.("phone-number");	
+ 	var parameters = req.body.result.parameters.number;	
 	var parameters1 = req.body.result.parameters.email;
  	var message = req.body.result.resolvedQuery;
 	console.log('SHIVA');
