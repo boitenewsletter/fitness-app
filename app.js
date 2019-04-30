@@ -85,6 +85,7 @@ app.post('/webhook/', (req, res) => {
 	var teskk = json.phonenumber;
 	var parameters1 = req.body.result.parameters.email;
  	var message = req.body.result.resolvedQuery;
+	console.log('SHIVA');
 	 console.log(teskk);
 	switch (actionName) {
 
