@@ -107,7 +107,7 @@ var getUserDetails = (authToken, callback) => {
         basketId: body,
 	      //name:body.value[0].name,
 	      //name1:body.objectDescribe.name
-	      name1:body.LastName
+	      name1:body.Email
 		
         });
       }
