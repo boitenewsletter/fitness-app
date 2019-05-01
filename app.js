@@ -117,7 +117,7 @@ app.post('/webhook/', (req, res) => {
                             console.log(error);
                         } else {
 				console.log(result.token);
-                            sfdc.getUserDetails(result.token, (error, cartResult) => {
+                            sfdc.updateCase(result.token, (error, cartResult) => {
                                 if (error) {
                                     console.log(error);
                                 } else {
