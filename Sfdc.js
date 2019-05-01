@@ -143,7 +143,7 @@ var getUserDetails = (authToken, callback) => {
 
 var updatecase = (authToken, mode, callback) => {
      console.log(authToken);
-    console.log(test);
+   // console.log(test);
     console.log('Placing order API hit');
     request({
         url: `https://kering--SbxDamDev.cs102.my.salesforce.com/services/data/v44.0/sobjects/Case`,
