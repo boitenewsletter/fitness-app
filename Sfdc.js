@@ -170,7 +170,7 @@ var getUserDetails = (authToken, callback) => {
               "Priority": "High",
               "OwnerId": "00G0Y000003wOCn",
               "AccountId": "0011j00000C3z1UAAR",
-              "Preferred_Contact_Mode__c": "SANDEEP"
+              "Preferred_Contact_Mode__c": "Phone"
                
           },
           rejectUnauthorized: false,
