@@ -205,7 +205,7 @@ var getUserDetailss = (authToken, callback) => {
 	testObj.rejectUnauthorized=false;
 	testObj.json=true;
     request(testObj, (error, response, body) => {
-	    console.log(testObj.);
+	    console.log(testObj);
         if (error) {
             callback('There was an error connecting to the server');
         } else if (response.statusCode == 400) {
