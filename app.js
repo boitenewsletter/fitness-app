@@ -86,7 +86,7 @@ app.post('/webhook/', (req, res) => {
     var emailAddress = req.body.result.parameters.email;
     var message = req.body.result.resolvedQuery;
     console.log('SHIVA');
-    console.log(parameters);
+    //console.log(parameters);
     switch (actionName) {
 
         case 'checking':
