@@ -151,6 +151,49 @@ var getUserDetails = (authToken, callback) => {
 };
 
 
+        var updateCase = (authToken, callback) => {
+        console.log('Placing order API hit');
+        request({
+          url: `https://kering--SbxDamDev.cs102.my.salesforce.com/services/data/v44.0/sobjects/Case`,
+          method: 'POST',
+          headers: {
+           "content-type": "application/json",
+           "authorization": `Bearer ${authToken}`
+           },
+          body: {
+              "Subject": "Request from Gucci Virtual Assistant",
+              "RecordTypeId": "0120Y000000yCLf",
+              "Area__c": "EMEA",
+              "Language__c": "ENG",
+              "Origin": "Google Assistant",
+              "Status": "New",
+              "Priority": "High",
+              "OwnerId": "00G0Y000003wOCn",
+              "AccountId": "0011j00000C3z1UAAR",
+              "Preferred_Contact_Mode__c": "email"
+               
+          },
+          rejectUnauthorized: false,
+          json: true
+          }, (error, response, body) => {
+
+          if(error){
+            callback('There was an error connecting to the server');
+          }
+          else if(response.statusCode == 401 || response.statusCode == 400){
+            callback('Unable to place an order');
+          }
+          else if(response.statusCode == 200){
+            console.log("Place order API hit:", response.statusCode);
+            callback(undefined, {
+              //code: body.order_no,
+              //payment_id: body.payment_instruments[0].payment_instrument_id
+              });
+          }
+     });
+};
+
+
 
 function isEmpty(obj) {
     for(var key in obj) {
@@ -163,5 +206,6 @@ function isEmpty(obj) {
 module.exports = {
     getAuthTokenService,
     sfdcToken,
-    getUserDetails
+    getUserDetails,
+    updateCase
 };
