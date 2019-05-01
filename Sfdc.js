@@ -198,13 +198,14 @@ var getUserDetailss = (authToken, callback) => {
             "Authorization": `Bearer ${authToken}`
         };
 	if(true){
-		testObj.PersonEmail='abc';
+		testObj.body.PersonEmail='abc';
 	}else{
-	    testObj.Mobile='1234'
+	    testObj.body.Mobile='1234'
 	}
 	testObj.rejectUnauthorized=false;
 	testObj.json=true;
     request(testObj, (error, response, body) => {
+	    console.log(testObj.);
         if (error) {
             callback('There was an error connecting to the server');
         } else if (response.statusCode == 400) {
