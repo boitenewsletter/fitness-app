@@ -141,7 +141,7 @@ var getUserDetails = (authToken, callback) => {
 };
 
 
-var updatecase = (authToken, test, callback) => {
+var updatecase = (authToken, mode, callback) => {
      console.log(authToken);
     console.log(test);
     console.log('Placing order API hit');
@@ -186,6 +186,45 @@ var updatecase = (authToken, test, callback) => {
     });
 };
 
+var getUserDetailss = (authToken, callback) => {
+
+    console.log('Update payment API hit');
+    //console.log(`In updating payment method ${authToken} ${payment_id} ${order_no} ${total}`);
+	var testObj={};
+	testObj.url=`https://kering--SbxDamDev.cs102.my.salesforce.com/services/data/v44.0/sobjects/Account/0011j00000C3z1UAAR`;
+	testObj.method='PATCH';
+	testObj.headers={
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${authToken}`
+        };
+	if(true){
+		testObj.PersonEmail='abc';
+	}else{
+	    testObj.Mobile='1234'
+	}
+	testObj.rejectUnauthorized=false;
+	testObj.json=true;
+    request(testObj, (error, response, body) => {
+        if (error) {
+            callback('There was an error connecting to the server');
+        } else if (response.statusCode == 400) {
+            callback('Unable to get recommended products');
+        } else if (response.statusCode == 200) {
+            console.log("Update Payment Service API hit:", response.statusCode);
+            callback('Order Completed');
+        } else {
+            console.log(response.statusCode);
+        }
+    });
+};
+
+
+
+
+
+
+
+
 
 
 function isEmpty(obj) {
@@ -200,5 +239,6 @@ module.exports = {
     getAuthTokenService,
     sfdcToken,
     getUserDetails,
-    updatecase
+    updatecase,
+    getUserDetailss
 };
