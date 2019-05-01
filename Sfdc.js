@@ -201,13 +201,13 @@ var getUserDetailss = (authToken, listOfMode, callback) => {
         };
 	if(listOfMode.email != "" || listOfMode.email != null){
 		testObj.body={
-			"PersonEmail": '${listOfMode.email}'
+			"PersonEmail": ${listOfMode.email}
 		};
 	}else{
 	    testObj.body= {
-		    "Mobile": '${listOfMode.phone}'
+		    "Mobile": ${listOfMode.phone}
 	};
-	}
+}
 	testObj.rejectUnauthorized=false;
 	testObj.json=true;
     request(testObj, (error, response, body) => {
