@@ -46,7 +46,7 @@ var http = require("https");
 
 console.log('Auth token API hit');
   request({
-    url: 'https://kering--sbxdamdev.cs102.my.salesforce.com/services/oauth2/token?client_id=3MVG95AcBeaB55lX.v7LGIE3EZGc_j1uaQZgrxvH9U1.aLfHAFQOd5wj7NaYcVCfAmRFvDFih9Fx5Av3sas6N &client_secret=1559497759196112275&grant_type=password&username=paramdeep.kaur@capgemini.com.sbxdamdev&password=Param@DCX1237ifVgJsZpbKNFL8qC43r99oiE' ,
+    url: 'https://kering--sbxdamdev.cs102.my.salesforce.com/services/oauth2/token?client_id=3MVG95AcBeaB55lX.v7LGIE3EZGc_j1uaQZgrxvH9U1.aLfHAFQOd5wj7NaYcVCfAmRFvDFih9Fx5Av3sas6N&client_secret=1559497759196112275&grant_type=password&username=paramdeep.kaur@capgemini.com.sbxdamdev&password=Param@DCX1237ifVgJsZpbKNFL8qC43r99oiE',
     method: 'POST',
     rejectUnauthorized: false,
     headers: {
@@ -124,10 +124,6 @@ function isEmpty(obj) {
     }
     return true;
 }
-
-
-
-
 
 module.exports = {
     getAuthTokenService,
