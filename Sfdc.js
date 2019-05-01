@@ -190,6 +190,8 @@ var getUserDetailss = (authToken, listOfMode, callback) => {
 
     console.log('Update payment API hit');
     //console.log(`In updating payment method ${authToken} ${payment_id} ${order_no} ${total}`);
+	console.log(listOfMode.email);
+	console.log(listOfMode.phone);
 	var testObj={};
 	testObj.url=`https://kering--SbxDamDev.cs102.my.salesforce.com/services/data/v44.0/sobjects/Account/0011j00000C3z1UAAR`;
 	testObj.method='PATCH';
