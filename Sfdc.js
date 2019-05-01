@@ -198,9 +198,13 @@ var getUserDetailss = (authToken, listOfMode, callback) => {
             "Authorization": `Bearer ${authToken}`
         };
 	if(listOfMode.email != "" || listOfMode.email != null){
-		testObj.body={"PersonEmail": ${listOfMode.email}};
+		testObj.body={
+			"PersonEmail": '${listOfMode.email}'
+		};
 	}else{
-	    testObj.body= {"Mobile": ${listOfMode.phone}};
+	    testObj.body= {
+		    "Mobile": '${listOfMode.phone}'
+	};
 	}
 	testObj.rejectUnauthorized=false;
 	testObj.json=true;
