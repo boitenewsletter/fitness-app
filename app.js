@@ -110,18 +110,21 @@ app.post('/webhook/', (req, res) => {
 	
 		case 'userDetails':
             {
-                console.log("In shoes-in-stock");
+                console.log("userDetails");
                 if (isDefined(actionName)) {
                     sfdc.sfdcToken ((error, result) => {
                         if (error) {
                             console.log(error);
                         } else {
+				console.log("userDetails1");
 				console.log(result.token);
                             sfdc.updateCase(result.token, (error, cartResult) => {
+				    console.log("userDetails3"); 
                                 if (error) {
                                     console.log(error);
+					 console.log("userDetails4"); 
                                 } else {
-                                    //console.log('Code--->', result.code);
+                                    console.log('Code--->', cartResult.code);
                                    // console.log(cartResult.basketId+' '+result.token+" "+result.token);
 					 // console.log(cartResult.basketId);
 					console.log('vivek');
@@ -130,12 +133,13 @@ app.post('/webhook/', (req, res) => {
 					//console.log(cartResult.name1);
 					//var email =cartResult.name1 ;
 					console.log('Neeraj');
-                                   text = "Your registered email is and we will contact you shortly. Have a nice day .";
+                                   text = "Your registered email is and we will contact you shortlyHave a nice day .";
                                     messageData = {
                                         speech: text,
                                         displayText: text
                                     }
                                     res.send(messageData);
+				   console.log(messageData)
                                 }
                             });
                         }
