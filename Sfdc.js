@@ -201,7 +201,7 @@ var getUserDetailss = (authToken, listOfMode, callback) => {
         };
 	if(listOfMode.email != "" || listOfMode.email != null){
 		testObj.body={
-			"PersonEmail": ${listOfMode.email}
+			"PersonEmail": `${listOfMode.email}`
 		};
 	}else{
 	    testObj.body= {
