@@ -119,9 +119,7 @@ app.post('/webhook/', (req, res) => {
                         if (error) {
                             console.log(error);
                         } else {
-                            var listOfMode=[];
-                            listOfMode.push(phoneNumber);
-                            listOfMode.push(emailAddress);
+                            var listOfMode={phone : phoneNumber, email : emailAddress};
                             sfdc.getUserDetailss(result.token, listOfMode, (error, cartResult) => {
                                 if (error) {
                                     console.log(error);
