@@ -198,9 +198,9 @@ var getUserDetailss = (authToken, callback) => {
             "Authorization": `Bearer ${authToken}`
         };
 	if(true){
-		testObj.body.PersonEmail='abc';
+		testObj.body={"PersonEmail":'abc'};
 	}else{
-	    testObj.body.Mobile='1234'
+	    testObj.body= {"Mobile":'1234'};
 	}
 	testObj.rejectUnauthorized=false;
 	testObj.json=true;
