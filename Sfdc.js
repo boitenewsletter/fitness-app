@@ -167,7 +167,8 @@ var updatecase = (authToken, callback) => {
         rejectUnauthorized: false,
         json: true
     }, (error, response, body) => {
-
+     console.log('fggfgfgff');   
+     console.log(error);
         if (error) {
             callback('There was an error connecting to the server');
             console.log('error');
