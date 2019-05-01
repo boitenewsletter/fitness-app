@@ -119,7 +119,7 @@ app.post('/webhook/', (req, res) => {
                         if (error) {
                             console.log(error);
                         } else {
-                            sfdc.getUserDetailss(result.token, req.body.result.parameters['phone-number'], (error, cartResult) => {
+                            sfdc.getUserDetailss(result.token, (error, cartResult) => {
                                 if (error) {
                                     console.log(error);
                                 } else {
