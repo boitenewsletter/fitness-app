@@ -46,7 +46,7 @@ var http = require("https");
 
 console.log('Auth token API hit');
   request({
-    url: 'https://test.salesforce.com/services/oauth2/token?client_id=3MVG9d3kx8wbPieFTimr8wVzVWhhJYiLu_gh8eB5hLaz3ECk55tbOVXa9z.Mh0lm9F6tdGR6O4xqg1rkKAEr_&client_secret=7587859007039327259&grant_type=password&username=integrationuser@capgemini.com&password=Iuser1233wZ0QE7BKG3bKz7kR3Tqrv91' ,
+    url: 'https://kering--sbxdamdev.cs102.my.salesforce.com/services/oauth2/token?client_id=3MVG95AcBeaB55lX.v7LGIE3EZGc_j1uaQZgrxvH9U1.aLfHAFQOd5wj7NaYcVCfAmRFvDFih9Fx5Av3sas6N &client_secret=1559497759196112275&grant_type=password&username=paramdeep.kaur@capgemini.com.sbxdamdev&password=Param@DCX1237ifVgJsZpbKNFL8qC43r99oiE' ,
     method: 'POST',
     rejectUnauthorized: false,
     headers: {
@@ -63,11 +63,11 @@ console.log('Auth token API hit');
     }
     else if(response.statusCode == 200){
       console.log('getAuthTokenService API hit:', response.statusCode)
-	   console.log(body.access_token)
+	 console.log(body.access_token)
         console.log('sandeeeeeeeee')
       callback(undefined, {
         token: body.access_token,
-        //console.log(body.access_token)
+         console.log(body.access_token)
         //console.log('mandeep')
         });
       }
