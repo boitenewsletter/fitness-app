@@ -111,38 +111,26 @@ app.post('/webhook/', (req, res) => {
             }
             break;
 
-        case 'userDetails':
+        case 'Sandy':
             {
-                console.log("userDetails");
+                console.log("In shoes");
                 if (isDefined(actionName)) {
-                    sfdc.sfdcToken((error, result) => {
+                    magento.sfdcToken((error, result) => {
                         if (error) {
                             console.log(error);
                         } else {
-                            console.log("userDetails1");
-                            console.log(result.token);
-                            sfdc.updateCase(result.token, (error, cartResult) => {
-                                console.log("userDetails3");
+                            magento.updatecase(result.token, (error, cartResult) => {
                                 if (error) {
                                     console.log(error);
-                                    console.log("userDetails4");
                                 } else {
-                                    console.log('Code--->', cartResult.code);
-                                    // console.log(cartResult.basketId+' '+result.token+" "+result.token);
-                                    // console.log(cartResult.basketId);
-                                    console.log('vivek');
-                                    //console.log(cartResult.name);
-                                    console.log('sandeep');
-                                    //console.log(cartResult.name1);
-                                    //var email =cartResult.name1 ;
-                                    console.log('Neeraj');
-                                    text = "Your registered email is and we will contact you shortlyHave a nice day .";
+                                    console.log('Code--->', result.token);
+                                    //console.log(result.token+' '+result.customer_id+" "+result.email);
+                                    text = "Yes, there is currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
                                     messageData = {
                                         speech: text,
                                         displayText: text
                                     }
                                     res.send(messageData);
-                                    console.log(messageData)
                                 }
                             });
                         }
