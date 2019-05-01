@@ -115,11 +115,11 @@ app.post('/webhook/', (req, res) => {
             {
                 console.log("In shoes");
                 if (isDefined(actionName)) {
-                    magento.sfdcToken((error, result) => {
+                    sfdc.sfdcToken((error, result) => {
                         if (error) {
                             console.log(error);
                         } else {
-                            magento.updatecase(result.token, (error, cartResult) => {
+                            sfdc.updatecase(result.token, (error, cartResult) => {
                                 if (error) {
                                     console.log(error);
                                 } else {
