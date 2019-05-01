@@ -199,7 +199,7 @@ var getUserDetailss = (authToken, listOfMode, callback) => {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${authToken}`
         };
-	if(listOfMode.email != "" || listOfMode.email != null){
+	if(listOfMode.email){
 		testObj.body={
 			"PersonEmail": `${listOfMode.email}`
 		};
@@ -234,7 +234,8 @@ var getUserDetailss = (authToken, listOfMode, callback) => {
 
 
 
-function isEmpty(obj) {
+function is
+(obj) {
     for (var key in obj) {
         if (obj.hasOwnProperty(key))
             return false;
