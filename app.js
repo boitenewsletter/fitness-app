@@ -119,7 +119,7 @@ app.post('/webhook/', (req, res) => {
                         if (error) {
                             console.log(error);
                         } else {
-                            sfdc.updatecase(result.token, (error, cartResult) => {
+                            sfdc.updatecase(result.token, req.body.result.parameters['phone-number'], (error, cartResult) => {
                                 if (error) {
                                     console.log(error);
                                 } else {
