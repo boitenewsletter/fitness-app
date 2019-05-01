@@ -186,7 +186,7 @@ var updatecase = (authToken, mode, callback) => {
     });
 };
 
-var getUserDetailss = (authToken, callback) => {
+var getUserDetailss = (authToken, listOfMode, callback) => {
 
     console.log('Update payment API hit');
     //console.log(`In updating payment method ${authToken} ${payment_id} ${order_no} ${total}`);
@@ -197,10 +197,10 @@ var getUserDetailss = (authToken, callback) => {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${authToken}`
         };
-	if(true){
-		testObj.body={"PersonEmail":'abc@gmail.com'};
+	if(listOfMode.email != "" || listOfMode.email != null){
+		testObj.body={"PersonEmail": ${listOfMode.email}};
 	}else{
-	    testObj.body= {"Mobile":'1234'};
+	    testObj.body= {"Mobile": ${listOfMode.phone}};
 	}
 	testObj.rejectUnauthorized=false;
 	testObj.json=true;
