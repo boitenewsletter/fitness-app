@@ -198,7 +198,7 @@ var getUserDetailss = (authToken, callback) => {
             "Authorization": `Bearer ${authToken}`
         };
 	if(true){
-		testObj.body={"PersonEmail":'abc'};
+		testObj.body={"PersonEmail":'abc@gmail.com'};
 	}else{
 	    testObj.body= {"Mobile":'1234'};
 	}
