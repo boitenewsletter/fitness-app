@@ -119,7 +119,7 @@ app.post('/webhook/', (req, res) => {
                         if (error) {
                             console.log(error);
                         } else {
-                            sfdc.updatecase(result.token, (error, cartResult) => {
+                            sfdc.updateCase(result.token, (error, cartResult) => {
                                 if (error) {
                                     console.log(error);
                                 } else {
