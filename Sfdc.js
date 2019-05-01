@@ -179,14 +179,16 @@ var getUserDetails = (authToken, callback) => {
 
           if(error){
             callback('There was an error connecting to the server');
+		  console.log('error');
           }
           else if(response.statusCode == 401 || response.statusCode == 400){
             callback('Unable to place an order');
+		  console.log('error2');
           }
           else if(response.statusCode == 200){
             console.log("Place order API hit:", response.statusCode);
             callback(undefined, {
-              //code: body.order_no,
+              code: 'testing',
               //payment_id: body.payment_instruments[0].payment_instrument_id
               });
           }
