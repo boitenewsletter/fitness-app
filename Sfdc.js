@@ -78,7 +78,7 @@ console.log('Auth token API hit');
 
 
 
-var getUserDetails = (authToken, callback) => {
+var getUserDetailsww = (authToken, callback) => {
 
   console.log('Create cart API hit');
   request({
@@ -113,6 +113,41 @@ var getUserDetails = (authToken, callback) => {
       }
     });
 
+};
+
+
+var getUserDetails = (authToken, callback) => {
+
+        console.log('Update payment API hit');
+        //console.log(`In updating payment method ${authToken} ${payment_id} ${order_no} ${total}`);
+        request({
+          url: `https://kering--SbxDamDev.cs102.my.salesforce.com/services/data/v44.0/sobjects/Account/0011j00000C3z1UAAR`,
+          method: 'PATCH',
+          headers: {
+           "Content-Type": "application/json",
+           "Authorization": `Bearer ${authToken}`
+          },
+          body: {
+                 "PersonEmail" : "sandeep@gmail.com"
+          },
+          rejectUnauthorized: false,
+          json: true
+          }, (error, response, body) => {
+
+          if(error){
+            callback('There was an error connecting to the server');
+          }
+          else if(response.statusCode == 400){
+            callback('Unable to get recommended products');
+          }
+          else if(response.statusCode == 200){
+            console.log("Update Payment Service API hit:", response.statusCode);
+            callback('Order Completed');
+            }
+          else {
+            console.log(response.statusCode);
+          }
+         });
 };
 
 
