@@ -111,7 +111,7 @@ app.post('/webhook/', (req, res) => {
             }
             break;
 
-        case 'Sandy':
+        case 'Sandyyy':
             {
                 console.log("In shoes");
                 if (isDefined(actionName)) {
@@ -121,6 +121,35 @@ app.post('/webhook/', (req, res) => {
                         } else {
                             var listOfMode={phone : phoneNumber, email : emailAddress};
                             sfdc.getUserDetailss(result.token, listOfMode, (error, cartResult) => {
+                                if (error) {
+                                    console.log(error);
+                                } else {
+                                    console.log('Code--->', result.token);
+                                    //console.log(result.token+' '+result.customer_id+" "+result.email);
+                                    text = "Yes, there is currently a promotion - they are at 200 swiss francs until the end of the month and are available at your usual Cap Sports Style store. Same color as current one";
+                                    messageData = {
+                                        speech: text,
+                                        displayText: text
+                                    }
+                                    res.send(messageData);
+                                }
+                            });
+                        }
+                    });
+                }
+            }
+            break;
+            case 'Sandy':
+            {
+                console.log("In shoes");
+                if (isDefined(actionName)) {
+                    sfdc.sfdcToken((error, result) => {
+                        if (error) {
+                            console.log(error);
+                        } else {
+                            
+                            var mode= phoneNumber ? 'Phone' : 'Email';
+                            sfdc.updatecase(result.token, mode, (error, cartResult) => {
                                 if (error) {
                                     console.log(error);
                                 } else {
