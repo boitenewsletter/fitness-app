@@ -207,7 +207,7 @@ app.post('/webhook/', (req, res) => {
                 console.log(basketId + "  " + token);
                 mailer.sendMailService(emailId, customerName, custLastName);
                 if (isDefined(actionName)) {
-                    var productName = req.body.result.contexts[0].parameters.sportsProducts
+                    //var productName = req.body.result.contexts[0].parameters.sportsProducts
                     if (productName == 'Gloves') {
                         var product_id = '0001TG250001';
                         messageId = 'MTY0OjExNDow';
