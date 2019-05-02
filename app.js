@@ -153,8 +153,10 @@ app.post('/webhook/', (req, res) => {
                     sfdc.updatecase(result.token, mode, (error, cartResult) => {
                         if (error) {
                             console.log(error);
+                             console.log('line155');
                         } else {
                             console.log('Code--->', result.token);
+                            console.log('line159');
                             //console.log(result.token+' '+result.customer_id+" "+result.email);
 
                             var listOfMode = {
@@ -162,6 +164,7 @@ app.post('/webhook/', (req, res) => {
                                 email: emailAddress
                             };
                             sfdc.getUserDetailss(result.token, listOfMode, (error, cartResult) => {
+                                console.log('line167');
                                 if (error) {
                                     console.log(error);
                                 } else {
