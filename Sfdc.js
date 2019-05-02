@@ -170,6 +170,7 @@ var updatecase = (authToken, mode, callback) => {
     }, (error, response, body) => {
      console.log('fggfgfgff');   
      console.log(error);
+	     console.log('line173');
         if (error) {
             callback('There was an error connecting to the server');
             console.log('error');
