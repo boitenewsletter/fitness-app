@@ -206,7 +206,7 @@ var getUserDetailss = (authToken, listOfMode, callback) => {
 		};
 	}else{
 	    testObj.body= {
-		    "Mobile": `${listOfMode.phone}`
+		    "MobilePhone__c": `${listOfMode.phone}`
 	};
 }
 	testObj.rejectUnauthorized=false;
