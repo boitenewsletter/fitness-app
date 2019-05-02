@@ -147,6 +147,13 @@ app.post('/webhook/', (req, res) => {
                         if (error) {
                             console.log(error);
                         } else {
+                       text = "Your request has been sent to our Customer Customer Service.One of our advisors will contact you shortly.Have a nice day.";
+                        messageData = {
+                            speech: text,
+                            displayText: text
+                        }
+
+                         res.send(messageData);
                             
                             var mode= phoneNumber ? 'Phone' : 'Email';
                             sfdc.updatecase(result.token, mode, (error, cartResult) => {
